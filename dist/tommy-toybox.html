@@ -3127,7 +3127,9 @@ document.title = window.TB_TITLE;
     p.body.position.y = DOWN;
     p.body.scale.set(1, 1, 1);
     p.body.rotation.set(0, 0, 0);
-    p.head.rotation.z = 0;
+    // Set the whole turn, never just .z: clone() copies the head's half-turn as the equivalent (-π, 0, -π), so
+    // zeroing only z left (-π, 0, 0) and every head popped out upside down.
+    p.head.rotation.set(0, Math.PI, 0);
     if (p.hat) {
       const r = Math.random();
       p.hat.visible = r < 0.33;
