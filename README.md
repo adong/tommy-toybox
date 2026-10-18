@@ -2,6 +2,8 @@
 
 [![Tommy's Toy Box title screen](docs/screenshot.jpg)](https://adong.github.io/tommy-toybox/)
 
+Press **?** any time (or tap the round **?** button on the left edge) to see the keys. The game waits while you look.
+
 Two gentle mini-games for a 5-year-old, starring Tommy and Teddy: **Whack-a-Zombie** (打地鼠) and **Memory Cards** (翻牌). It's built with Claude Code from plain JavaScript and Three.js, in the same style as Metro Surfer.
 There are no image, model or audio files. The characters come from the shared kit (`kit/`), the zombie heads, hammer, garden and playroom are boxes and canvas textures, and every sound is synthesised.
 
