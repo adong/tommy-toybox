@@ -137,6 +137,8 @@
     show(ui.buddyBtn, true);
     show(ui.cardsWrap, id === 'memory');
     ui.hud.dataset.mode = id;
+    ui.bigCount.className = '';
+    ui.bigCount.textContent = '';
     layout();
     m.start(level);
     S.music('title');
@@ -347,7 +349,7 @@
       const d = document.createElement('div');
       d.className = 'newst stk';
       d.style.animationDelay = `${0.6 + i * 0.4}s`;
-      d.innerHTML = TB.stickers.pictureHTML(s);
+      d.innerHTML = TB.stickers.pictureHTML(s) + '<b class="newtag">NEW!</b>';
       ui.rStickers.appendChild(d);
       setTimeout(() => TB.sfx.sticker(), 600 + i * 400);
     });

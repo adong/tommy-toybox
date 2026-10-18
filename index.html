@@ -90,6 +90,16 @@
   .buddycard img { height: 86%; aspect-ratio: 1; border-radius: 16px; background: radial-gradient(circle at 50% 35%, #fff3d0, #ffb02e); }
   .buddycard span { -webkit-text-stroke: 2px var(--ink); paint-order: stroke fill; text-shadow: 0 3px 0 var(--ink); }
   .buddycard.guarding { animation: glow 1.1s ease-in-out infinite; border-style: solid; border-color: var(--yellow); }
+  @media (max-height: 420px) {
+    /* a phone on its side: everything on the menu a size smaller so it all fits */
+    #home { gap: 6px; padding: 6px; }
+    .logo small { font-size: 20px; -webkit-text-stroke-width: 2px; }
+    .logo big { font-size: 40px; text-shadow: 0 4px 0 var(--ink); }
+    .tile { width: 118px; border-width: 5px; border-radius: 26px; }
+    .pick { width: 52px; border-radius: 16px; }
+    .bookbtn, .buddycard { height: 56px; font-size: 20px; border-radius: 20px; }
+    .bookbtn .ico { font-size: 32px; }
+  }
 
   /* ---------- HUD ---------- */
   #hud { position: fixed; inset: 0; pointer-events: none; z-index: 6; transition: opacity 0.3s; }
@@ -125,7 +135,21 @@
   .guard i { display: block; width: clamp(110px, 20vw, 200px); height: 16px; border-radius: 9px; background: rgba(255, 255, 255, 0.25); overflow: hidden; }
   .guard b { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #ffd400, #ff8a1f); transform-origin: left; }
   @keyframes pop { from { transform: scale(0.4); } }
-  @media (max-height: 520px) { .hudmid { flex-direction: row; } .guard img { width: 38px; height: 38px; } }
+  @media (max-height: 520px) {
+    /* a phone on its side: the buddy's bar sits beside the clock, and both get shorter so the top row fits */
+    .hudmid { flex-direction: row; }
+    .guard img { width: 38px; height: 38px; }
+    .guard span, .clock span { display: none; }
+    .guard i { width: clamp(48px, 7vw, 140px); }
+    .clock i { width: clamp(80px, 15vw, 200px); }
+    .midrow { gap: 8px; }
+    .levels { gap: 6px; }
+    .levels .dot { width: 24px; height: 20px; font-size: 11px; }
+    #timerBtn { width: 44px; height: 44px; font-size: 22px; border-radius: 14px; }
+    .pill { font-size: 22px; padding: 4px 12px 4px 8px; }
+    #streak.off { display: none; }
+  }
+  .hudtop > .ibtn, .hudright > * { flex-shrink: 0; }
 
   /* the buddy's button: bottom right, big, with his face */
   .buddybtn {
@@ -204,7 +228,7 @@
   .rlevels .dot.done { background: var(--mint); }
   .rstickers { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; min-height: 0; }
   .rstickers .newst { width: clamp(84px, 15vmin, 130px); aspect-ratio: 1; display: grid; place-items: center; animation: peel 0.7s cubic-bezier(.3, 1.6, .5, 1) backwards; position: relative; }
-  .rstickers .newst::before { content: 'NEW!'; position: absolute; top: -10px; right: -10px; z-index: 2; font: 400 16px var(--display); color: #fff; background: var(--pink); border: 3px solid var(--ink); border-radius: 10px; padding: 2px 6px; transform: rotate(10deg); }
+  .rstickers .newst .newtag { position: absolute; top: -10px; right: -10px; z-index: 2; font: 400 16px var(--display); color: #fff; background: var(--pink); border: 3px solid var(--ink); border-radius: 10px; padding: 2px 6px; transform: rotate(10deg); }
   @keyframes peel { from { transform: scale(0) rotate(-40deg); opacity: 0; } }
   .rbtns { display: flex; gap: clamp(14px, 3vmin, 26px); }
   /* stickers (book and results) */
@@ -323,6 +347,7 @@
 <script src="kit/roster.js"></script>
 <script src="kit/portraits.js"></script>
 <script src="kit/sound.js"></script>
+<script src="kit/lang.js"></script>
 <script src="kit/help.js"></script>
 <script src="js/title.js"></script>
 <script src="js/sfx.js"></script>
@@ -335,5 +360,6 @@
 <script src="js/memory.js"></script>
 <script src="js/game.js"></script>
 <script src="js/keys.js"></script>
+<script src="js/zh.js"></script>
 </body>
 </html>

@@ -62,7 +62,9 @@
   // ---------------------------------------------------------------- comic starbursts
 
   const burstCache = {};
-  function burstTexture(word, fill = '#ffd400', ink = '#e8372c') {
+  // The word is translated when drawn (BONK! is 咚！ in 中文), and cached per language.
+  function burstTexture(en, fill = '#ffd400', ink = '#e8372c') {
+    const word = Kit.lang ? Kit.lang.t(en) : en;
     const key = word + fill + ink;
     if (burstCache[key]) return burstCache[key];
     const [c, g] = makeCanvas(256, 256);
@@ -80,7 +82,10 @@
     g.strokeStyle = ink;
     g.lineJoin = 'round';
     g.stroke();
-    g.font = `${word.length > 4 ? 46 : 56}px ${FONT}`;
+    let size = word.length > 4 ? 46 : 56;
+    g.font = `${size}px ${FONT}`;
+    const w = g.measureText(word).width;
+    if (w > 190) g.font = `${Math.floor((size * 190) / w)}px ${FONT}`; // keep it inside the star
     g.textAlign = 'center';
     g.textBaseline = 'middle';
     g.lineWidth = 10;
