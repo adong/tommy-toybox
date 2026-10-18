@@ -9,7 +9,7 @@ Whack-a-zombie and memory cards for little hands.
 Press **?** any time (or tap the round **?** button on the left edge) to see the keys. The game waits while you look.
 Tap the language button under it (the A文 icon) to switch between English and 中文; the dashboard and every game remember the choice.
 
-Two gentle mini-games for a 5-year-old, starring Tommy and Teddy: **Whack-a-Zombie** (打地鼠) and **Memory Cards** (翻牌). It's built with Claude Code from plain JavaScript and Three.js, in the same style as Metro Surfer.
+Two gentle mini-games for a 5-year-old, starring Tommy and Teddy: **Whack-a-Zombie** and **Memory Cards**. It's built with Claude Code from plain JavaScript and Three.js, in the same style as Metro Surfer.
 There are no image, model or audio files. The characters come from the shared kit (`kit/`), the zombie heads, hammer, garden and playroom are boxes and canvas textures, and every sound is synthesised.
 
 The name lives in one place, `js/title.js`, and the page title and logo both read it.
